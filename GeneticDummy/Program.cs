@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace GeneticDummy
 {
@@ -15,10 +16,12 @@ namespace GeneticDummy
         static void Main(string[] args)
         {
             string blocksPath = args[0];
+            ConnectedBlocksGraph connectedBlocks = new ConnectedBlocksGraph(blocksPath);
+            //int[,] population = new int[POPULATION_SIZE,]
 
         }
 
-        int getMaxFitness(List<int[]> connectedBlocks)
+        int GetMaxFitness(ConnectedBlocksGraph connectedBlocks)
         {
             int maxFitness = 0;
             foreach (var a in connectedBlocks)
@@ -72,30 +75,16 @@ namespace GeneticDummy
             return child;
         }
 
-        int[] MutateChild(int[] child, Random random, int availableColours)
-        {
-            int randomPosition = random.Next(child.Length);
-            int randomColour = random.Next(availableColours);
-            //Ensure that the mutation results to a different colour
-            while (randomColour == child[randomPosition])
-            {
-                randomColour = random.Next(availableColours);
-            }
-            child[randomPosition] = randomColour;
-            return child;
-        }
-        //TODO
-        int[,] ApplyMutation(int[,] population, Random random, double mutationChance)
+        int[,] ApplyMutation(int[,] population, Random random, double mutationChance, int availableColours)
         {
             for (int i = 0; i < population.GetLength(0); i++)
             {
                 if(random.NextDouble() < mutationChance)
                 {
-                    int[] mutatedChild = MutateChild(population[i]);
+                    int[] mutatedChild = MutateChild(population.GetRow(i), random, availableColours);
                     for (int j = 0; j < population.GetLength(1); j++)
                     {
-                        population[i,j] = 
-
+                        population[i, j] = mutatedChild[j];
                     }
                 }
             }
@@ -147,32 +136,6 @@ namespace GeneticDummy
 
             }
             return fitness;
-        }
-
-        List<int[]> GetConnectedBlocks(string path)
-        {
-            List<int[]> connectedBlocks = new List<int[]>();
-            foreach (string line in File.ReadLines(path))
-            {
-                string[] blocks = line.Split(',');
-                connectedBlocks.Add(Array.ConvertAll(blocks, int.Parse));
-            }
-            return connectedBlocks;
-        }
-
-
-        int[,] InitializePopulation(int populationSize, int numberOfBlocks)
-        {
-            int[,] population = new int[populationSize, numberOfBlocks];
-
-            for(int i=0; i< populationSize; i++)
-            {
-                for (int j = 0; j < numberOfBlocks; j++)
-                {
-                    population[i, j] = rand.Next(4);               
-                }
-            }
-            return population;
         }
     }
 }
