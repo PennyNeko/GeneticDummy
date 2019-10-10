@@ -4,26 +4,27 @@ using System.Text;
 
 namespace GeneticDummy
 {
-    class Genome
+    class Individual
     {
-        public Genome(int[] sequence)
+        public Individual(int[] sequence)
         {
             Sequence = sequence;
         }
 
-        Genome Mutate(Genome genome, Random random, int availableColours)
+        public int Fitness { get; set; }
+        public int[] Sequence { set; get; }
+
+        void Mutate(Random random, int availableColours)
         {
-            int randomPosition = random.Next(genome.Sequence.Length);
+            int randomPosition = random.Next(Sequence.Length);
             int randomColour = random.Next(availableColours);
             //Ensure that the mutation results to a different colour
-            while (randomColour == genome.Sequence[randomPosition])
+            while (randomColour == Sequence[randomPosition])
             {
                 randomColour = random.Next(availableColours);
             }
-            genome.Sequence[randomPosition] = randomColour;
-            return genome;
+            Sequence[randomPosition] = randomColour;
         }
 
-        int[] Sequence { set; get; }
     }
 }

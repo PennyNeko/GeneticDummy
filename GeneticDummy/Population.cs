@@ -6,24 +6,22 @@ namespace GeneticDummy
 {
     class Population
     {
-        public Population()
+        public Population(Individual[] individuals)
         {
-
+            Individuals = individuals;
         }
 
-        Genome[] Genomes { set; get; } 
-
-        void InitializePopulation(int populationSize, int numberOfBlocks, Random random)
+        public Individual[] Individuals { set; get; } 
+        public int MaxFitness { set; get; }
+        public int[] GetFitness()
         {
-            Genomes = new Genome[populationSize, numberOfBlocks];
-
-            for (int i = 0; i < populationSize; i++)
+            int[] fitness = new int[Individuals.Length];
+            for (int i = 0; i <Individuals.Length; i++)
             {
-                for (int j = 0; j < numberOfBlocks; j++)
-                {
-                    Genomes[i, j] = random.Next(4);
-                }
+                fitness[i] = Individuals[i].Fitness;
             }
+            return fitness;
         }
+
     }
 }

@@ -4,7 +4,7 @@ using System.IO;
 
 namespace GeneticDummy
 {
-    class ConnectedBlocksGraph
+    public class ConnectedBlocksGraph
     {
         public ConnectedBlocksGraph(string path)
         {
@@ -22,12 +22,7 @@ namespace GeneticDummy
             return connectedBlocks;
         }
 
-        List<int[]> Blocks { set; get; }
+        public List<int[]> Blocks { set; get; }
         
-        int NumberOfBlocks() {
-            return Blocks.Count;
-        }
-
-
     }
 }

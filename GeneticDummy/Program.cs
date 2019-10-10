@@ -11,7 +11,7 @@ namespace GeneticDummy
         const int POPULATION_SIZE = 100;
         const double MUTATION_CHANCE = 0.1;
         const int AVAILABLE_COLOURS = 4;
-        Random rand = new Random(); 
+        readonly Random random = new Random(); 
 
         static void Main(string[] args)
         {
@@ -24,7 +24,7 @@ namespace GeneticDummy
         int GetMaxFitness(ConnectedBlocksGraph connectedBlocks)
         {
             int maxFitness = 0;
-            foreach (var a in connectedBlocks)
+            foreach (var a in connectedBlocks.Blocks)
             {
                 foreach (var i in a)
                 {
@@ -32,21 +32,6 @@ namespace GeneticDummy
                 }
             }
             return maxFitness;
-        }
-
-        int RouletteWheelSelection(int maxSize, int[] weights, Random rand)
-        {
-            int weightSum = weights.Sum();
-            int randomInt = rand.Next(weightSum);
-            for (int i = 0; i < maxSize; i++)
-            {
-                if (randomInt <weights[i])
-                {
-                    return i;
-                }
-                randomInt -= weights[i];
-            }
-            return 0;
         }
         
 
@@ -119,20 +104,20 @@ namespace GeneticDummy
             int[] fitness = new int[populationSize];
             for (int i = 0; i < populationSize; i++)
             {
-                for (int j = 0; j < numberOfBlocks; j++)
-                {
-                    for (int k = 0; k < connectedBlocks[j].GetLength(0); k++)
-                    {
-                        if(population[i,j] == population[i, connectedBlocks[j][k]-1])
+                        for (int j = 0; j < numberOfBlocks; j++)
                         {
-                            fitness[i] -= negativeFitnessPoints;
+                            for (int k = 0; k < connectedBlocks[j].GetLength(0); k++)
+                            {
+                                if(population[i,j] == population[i, connectedBlocks[j][k]-1])
+                                {
+                                    fitness[i] -= negativeFitnessPoints;
+                                }
+                                else
+                                {
+                                    fitness[i] += positiveFitnessPoints;
+                                }
+                            }
                         }
-                        else
-                        {
-                            fitness[i] += positiveFitnessPoints;
-                        }
-                    }
-                }
 
             }
             return fitness;
