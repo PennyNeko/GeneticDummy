@@ -2,6 +2,7 @@
 
 namespace GeneticDummy
 {
+    ///Main class of the program
     class Program
     {
         const int POPULATION_SIZE = 100;

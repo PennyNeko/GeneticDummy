@@ -1,8 +1,7 @@
 ﻿namespace GeneticDummy
 {
-    /**
-    * A class containing information regarding the initial parameters of the genetic algorithm, such as the population size, the mutation chance etc.
-    */
+    
+    ///A class containing information regarding the initial parameters of the genetic algorithm, such as the population size, the mutation chance etc.
     class GeneticOptions
     {
         

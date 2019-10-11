@@ -3,9 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace GeneticDummy
 {
-    /**
-     * Class containing useful methods to be used in the rest of the code.
-     */
+    /// Class containing useful methods to be used in the rest of the code.
 
     public static class Util
     {

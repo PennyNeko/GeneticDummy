@@ -4,9 +4,7 @@ using System.IO;
 
 namespace GeneticDummy
 {
-    /**
-     * A class containing all the information related to the graph to be painted.
-     */
+    ///A class containing all the information related to the graph to be painted.
     public class ConnectedBlocksGraph
     {
         /**

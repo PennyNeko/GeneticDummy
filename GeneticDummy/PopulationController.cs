@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace GeneticDummy
 {
+    ///The PopulationController contains all the methods related to altering the population values.
     class PopulationController
     {
         /**

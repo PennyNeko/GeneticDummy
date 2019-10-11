@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['geneticdummy_0',['GeneticDummy',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['availablecolours_0',['AvailableColours',['../class_genetic_dummy_1_1_genetic_options.html#a473a5890e301e8dbab8e8e075ce890bc',1,'GeneticDummy::GeneticOptions']]]
 ];

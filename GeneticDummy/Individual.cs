@@ -2,9 +2,9 @@
 
 namespace GeneticDummy
 {
-    /**
-     * Class of an Individual of a population.
-     */
+    
+     ///Class of an Individual of a population.
+    
     class Individual
     {
         public Individual(int[] sequence)

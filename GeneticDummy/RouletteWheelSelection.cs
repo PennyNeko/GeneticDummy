@@ -3,9 +3,7 @@ using System.Linq;
 
 namespace GeneticDummy
 {
-    /**
-     * Implements a roulette wheel selection algorithm, which selects a random number from an array based on weights.
-     */
+    ///Implements a roulette wheel selection algorithm, which selects a random number from an array based on weights.
     public class RouletteWheelSelection : ISelection
     {
         public int Selection(int[] weights, Random rand)

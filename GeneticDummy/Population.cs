@@ -1,8 +1,6 @@
 ﻿namespace GeneticDummy
 {
-    /**
-     * Class containing an array of Individuals and its properties.
-     */
+    /// Class containing an array of Individuals and its properties.
     class Population
     {
         public Population(Individual[] individuals)
