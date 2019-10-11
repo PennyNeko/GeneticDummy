@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace GeneticDummy
 {
+    /**
+     * Class containing useful methods to be used in the rest of the code.
+     */
+
     public static class Util
     {
+        /**
+         * A static method that gets a the row of an array.
+         */
         //I shamelessly copy-pasted SO code here...
         public static T[] GetRow<T>(this T[,] array, int row)
         {

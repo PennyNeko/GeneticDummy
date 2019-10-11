@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace GeneticDummy
 {
+    /**
+     * Implements a roulette wheel selection algorithm, which selects a random number from an array based on weights.
+     */
     public class RouletteWheelSelection : ISelection
     {
         public int Selection(int[] weights, Random rand)

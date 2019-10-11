@@ -1,19 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeneticDummy
 {
+    /**
+     * Class of an Individual of a population.
+     */
     class Individual
     {
         public Individual(int[] sequence)
         {
             Sequence = sequence;
         }
-
+        ///The fitness of each individual.
         public int Fitness { get; set; }
+        /**
+         * An individual's genome sequence. In this case the sequence is a number from 0 to AVAILABLE_COLOURS-1, each number corresponding to a different colour. 
+         */
         public int[] Sequence { set; get; }
-
+        /**
+         * A class that mutates a genome's colour to a different colour randomly. 
+         */
         public void Mutate(Random random, GeneticOptions geneticOptions)
         {
             int randomPosition = random.Next(Sequence.Length);
@@ -25,7 +31,7 @@ namespace GeneticDummy
             }
             Sequence[randomPosition] = randomColour;
         }
-
+        ///A method that calculates the fitness of the individual based on the reward and punishment values.
         public void CalculateFitness(ConnectedBlocksGraph connectedBlocks, GeneticOptions geneticOptions)
         {
             for (int j = 0; j < connectedBlocks.Blocks.Count; j++)

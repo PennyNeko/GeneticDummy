@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace GeneticDummy
 {
@@ -13,7 +9,7 @@ namespace GeneticDummy
         const int AVAILABLE_COLOURS = 4;
         const int POSITIVE_FITNESS_POINTS = 1;
         const int NEGATIVE_FITNESS_POINTS = -1;
-        const double POPULATION_REFRESHING = 0.9;
+        const double POPULATION_REFRESHING = 0.8;
 
         static void Main(string[] args)
         {
