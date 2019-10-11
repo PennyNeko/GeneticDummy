@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GeneticDummy": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\Users\\Penny\\Documents\\GeneticDummy\\GeneticDummy\\blocks_1.txt\""
+    }
+  }
+}

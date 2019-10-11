@@ -12,7 +12,6 @@ namespace GeneticDummy
         }
 
         public Individual[] Individuals { set; get; } 
-        public int MaxFitness { set; get; }
         public int[] GetFitness()
         {
             int[] fitness = new int[Individuals.Length];
