@@ -30,10 +30,12 @@ namespace GeneticDummy
                 randomColour = random.Next(geneticOptions.AvailableColours);
             }
             Sequence[randomPosition] = randomColour;
+            
         }
         ///A method that calculates the fitness of the individual based on the reward and punishment values.
         public void CalculateFitness(ConnectedBlocksGraph connectedBlocks, GeneticOptions geneticOptions)
         {
+            Fitness = 0;
             for (int j = 0; j < connectedBlocks.Blocks.Count; j++)
             {
                 for (int k = 0; k < connectedBlocks.Blocks[j].Length; k++)

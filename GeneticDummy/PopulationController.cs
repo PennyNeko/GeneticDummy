@@ -21,7 +21,7 @@ namespace GeneticDummy
             while (!CanEnd(connectedBlocks, population, geneticOptions))
             {
                 Population newPopulation = RefreshPopulation(population, connectedBlocks, geneticOptions, random);
-                newPopulation = ApplyMutation(newPopulation, random, geneticOptions);
+                newPopulation = ApplyMutation(newPopulation, random, geneticOptions, connectedBlocks);
                 population = newPopulation;
                 iterations++;
             }
@@ -140,13 +140,14 @@ namespace GeneticDummy
          * Applies mutation to the whole population based on the mutation chance.
          * @return Returns a population object with the mutated individuals.
          */
-        Population ApplyMutation(Population population, Random random, GeneticOptions geneticOptions)
+        Population ApplyMutation(Population population, Random random, GeneticOptions geneticOptions, ConnectedBlocksGraph connectedBlocks)
         {
             for (int i = 0; i < population.Individuals.Length; i++)
             {
                 if (random.NextDouble() < geneticOptions.MutationChance)
                 {
                     population.Individuals[i].Mutate(random, geneticOptions);
+                    population.Individuals[i].CalculateFitness(connectedBlocks, geneticOptions);
                 }
             }
             return population;
